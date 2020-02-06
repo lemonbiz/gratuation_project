@@ -1,0 +1,25 @@
+{% extends 'base_accounts.html' %}
+
+{% block title %}注册{% endblock %}
+
+{% block content %}
+    <div class="row justify-content-center">
+        <div class="col-lg-8 col-md-10 col-sm-12">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">来Jay's netspace注册吧并让我知道你是谁吧？</h4>
+                    <form method="post" novalidate>
+                        {% csrf_token %}
+                        {% include 'includes/form.html' %}
+                        <button type="submit" class="btn btn-primary btn-block">
+                            创建账户
+                        </button>
+                    </form>
+                </div>
+                <div class="card-footer text-muted text-center">
+                    已经有账号了?<a href="{% url 'login' %}">来登陆吧</a>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

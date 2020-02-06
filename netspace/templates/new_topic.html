@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% load widget_tweaks static %}
+
+{% block title %}开始一个新的讨论{% endblock %}
+
+
+{% block stylesheet %}
+    <link rel="stylesheet" href="{% static 'css/simplemde.min.css' %}">
+{% endblock %}
+
+{% block javascript %}
+    <script src="{% static 'js/simplemde.min.js' %}"></script>
+    <script>
+        var simplemde = new SimpleMDE();
+    </script>
+{% endblock %}
+
+
+{% block breadcrumb %}
+    <li class="breadcrumb-item"><a href="{% url 'home' %}">讨论</a></li>
+    <li class="breadcrumb-item"><a href="{% url 'board_topics' board.pk %}">{{ board.name }}</a></li>
+    <li class="breadcrumb-item active">新的讨论</li>
+{% endblock %}
+
+{% block content %}
+    <form method="post" class="mb-4" novalidate>
+        {% csrf_token %}
+        {% include 'includes/form.html' %}
+        <button type="submit" class="btn btn-success">发布</button>
+    </form>
+{% endblock %}

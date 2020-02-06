@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block breadcrumb %}
+    <li class="breadcrumb-item active">讨论</li>
+{% endblock %}
+
+{% block content %}
+    <table class="table">
+        <thead class="thead-inverse">
+        <tr>
+            <th>主题</th>
+            <th>讨论</th>
+            <th>帖子</th>
+            <th>最新发布</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for board in boards %}
+            <tr>
+                <td>
+                    <a href="{% url 'board_topics' board.pk %}">{{ board.name }}</a>
+                    <small class="text-muted d-block">{{ board.description }}</small>
+                </td>
+                <td class="align-middle">{{ board.get_posts_count }}</td>
+                <td class="align-middle">{{ board.topics.count }}</td>
+                <td class="align-middle">{% with post=board.get_last_post %}
+                    {% if post %}
+                        <small>
+                            <a href="{% url 'topic_posts' board.pk post.topic.pk %}">
+                                By {{ post.created_by.username }} at {{ post.created_by }}
+                            </a>
+                        </small>
+                    {% else %}
+                        <small class="text-muted">
+                            <em>还没有回复呢</em>
+                        </small>
+                    {% endif %}
+                {% endwith %}
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
