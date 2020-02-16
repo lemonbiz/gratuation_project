@@ -1,0 +1,7 @@
+#wrap {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    row: 20px;
+
+}
