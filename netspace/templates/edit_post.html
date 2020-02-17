@@ -5,6 +5,7 @@
 {% block title %}编辑帖子{% endblock %}
 
 {% block stylesheet %}
+    <link rel="stylesheet" href="{% static 'css/board.css' %}">
     <link rel="stylesheet" href="{% static 'css/simplemde.min.css' %}">
 {% endblock %}
 {% block javascript %}
@@ -12,6 +13,7 @@
     <script>
         var simplemde = new SimpleMDE();
     </script>
+
 {% endblock %}
 
 {% block breadcrumb %}

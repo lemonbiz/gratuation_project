@@ -4,6 +4,10 @@
 
 {% block title %}{{ movie.title }}{% endblock %}
 
+{% block stylesheet %}
+    <link rel="stylesheet" href="{% static 'css/movie.css' %}">
+{% endblock %}
+
 {% block breadcrumb %}
     <li class="breadcrumb-item">
         <a href="{% url 'view_movie' %}">热门电影</a>

@@ -4,6 +4,10 @@
 
 {% block title %}{{ topic.subject }}{% endblock %}
 
+{% block stylesheet %}
+    <link rel="stylesheet" href="{% static 'css/board.css' %}">
+{% endblock %}
+
 {% block breadcrumb %}
     <li class="breadcrumb-item">
         <a href="{% url 'home' %}">讨论</a>

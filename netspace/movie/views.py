@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.views.generic import ListView,
+from django.views.generic import ListView, DetailView
 from .models import Movie
 # Create your views here.
 
@@ -11,4 +11,4 @@ class viewMovieListView(ListView):
     paginate_by = 14
 
 
-class viewMovieContent()
+# class viewMovieContent()

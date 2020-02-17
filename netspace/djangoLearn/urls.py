@@ -63,6 +63,6 @@ urlpatterns = [
             views.PostUpdateView.as_view(), name='edit_post'),
 
     re_path(r'^movie/$', movie_views.viewMovieListView.as_view(), name='view_movie'),
-    re_path(r'^movie/(?P<pk>\d+)$', movie_views.)
+    # re_path(r'^movie/(?P<pk>\d+)$', movie_views.)
 ]
 

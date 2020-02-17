@@ -1,9 +1,13 @@
 {% extends 'base.html' %}
 
-{% load humanize %}
+{% load humanize static %}
 
 {% block title %}
     {{ board.name }} - {{ block.super }}
+{% endblock %}
+
+{% block stylesheet %}
+    <link rel="stylesheet" href="{% static 'css/board.css' %}">
 {% endblock %}
 
 {% block breadcrumb %}
