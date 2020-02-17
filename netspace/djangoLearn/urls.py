@@ -17,15 +17,20 @@ from django.contrib import admin
 from django.urls import path, re_path
 from boards import views
 from accounts import views as accounts_views
+from movie import views as movie_views
 from django.contrib.auth import views as auth_views
+# auth_view 是用来提供认证登陆等blabla的， 方式一样是cbv
+
 
 urlpatterns = [
+    # home urls
     path('', views.BoardListView.as_view(), name='home'),
+    path('admin/', admin.site.urls),
 
+    # accounts urls
     path('signup/', accounts_views.signup, name='signup'),
     path('logout/', auth_views.LogoutView.as_view(), name='logout'),
     path('login/', auth_views.LoginView.as_view(template_name='login.html'), name='login'),
-    path('admin/', admin.site.urls),
     path('reset/', auth_views.PasswordResetView.as_view(
         template_name='password_reset.html',
         email_template_name='password_reset_email.html',
@@ -47,7 +52,9 @@ urlpatterns = [
         template_name='password_change.html'), name='password_change'),
     path('settings/password/done/', auth_views.PasswordChangeDoneView.as_view(
         template_name='password_change_done.html'), name='password_change_done'),
+    path('settings/account/', accounts_views.UserUpdateView.as_view(), name='my_account'),
 
+    # boards urls
     re_path(r'^boards/(?P<pk>\d+)/$', views.TopicListView.as_view(), name='board_topics'),
     re_path(r'^boards/(?P<pk>\d+)/new/$', views.new_topic, name='new_topic'),
     re_path(r'^boards/(?P<pk>\d+)/topics/(?P<topic_pk>\d+)/$', views.PostListView.as_view(), name='topic_posts'),
@@ -55,6 +62,7 @@ urlpatterns = [
     re_path(r'^boards/(?P<pk>\d+)/topics/(?P<topic_pk>\d+)/posts/(?P<post_pk>\d+)/edit/$',
             views.PostUpdateView.as_view(), name='edit_post'),
 
-    path('settings/account/', accounts_views.UserUpdateView.as_view(), name='my_account'),
-
+    re_path(r'^movie/$', movie_views.viewMovieListView.as_view(), name='view_movie'),
+    re_path(r'^movie/(?P<pk>\d+)$', movie_views.)
 ]
+

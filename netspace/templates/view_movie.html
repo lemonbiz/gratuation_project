@@ -1,11 +1,53 @@
 {% extends 'base.html' %}
 
+{% load static %}
+
 {% block title %}电影{% endblock %}
+
+{% block stylesheet %}
+    <style>
+        #wrap {
+            display: flex;
+            justify-content: flex-start;
+            flex-wrap: wrap;
+
+        }
+
+        .item {
+            border: 4px solid white;
+            height: 270px;
+        }
+
+    </style>
+{% endblock %}
 
 {% block breadcrumb %}
     <li class="breadcrumb-item active">电影</li>
 {% endblock %}
 
 {% block content %}
+    <div>
+        <div id="content">
+            <h1>热门电影</h1>
+            <div class="mb-3">
+                <h4>我来写分类</h4>
+            </div>
 
+            <div class="list" id="wrap">
+                {% for movie in movies %}
+                    <a class="item" target="_blank" href="">
+                        <div class="cover-wp" data-id="{{ movie.id }}">
+                            <img src="{{ movie.icon }}" alt="{{ movie.title }}" height="200"
+                                 width="150">
+                        </div>
+                        <p style="width: 150px; height: 60px; overflow: hidden; text-overflow: ellipsis; font-size: 15px">
+                            {{ movie.title }}
+                            <strong>{{ movie.rate }}分</strong>
+                        </p>
+                    </a>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    {% include 'includes/pagination.html' %}
 {% endblock %}

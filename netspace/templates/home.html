@@ -27,12 +27,12 @@
                     {% if post %}
                         <small>
                             <a href="{% url 'topic_posts' board.pk post.topic.pk %}">
-                                By {{ post.created_by.username }} at {{ post.created_by }}
+                                {{ post.created_by.username }}
                             </a>
                         </small>
                     {% else %}
                         <small class="text-muted">
-                            <em>还没有回复呢</em>
+                            <em>还没有发布呢，来发布一个？</em>
                         </small>
                     {% endif %}
                 {% endwith %}

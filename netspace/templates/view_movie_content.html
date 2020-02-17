@@ -1,10 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}{{ movie.title }}{% endblock %}
+
+{% block breadcrumb %}
+    <li class="breadcrumb-item">
+        <a href="{% url 'view_movie' %}">热门电影</a>
+    </li>
+    <li class="breadcrumb-item active">{{ movie.title }}</li>
+
+{% endblock %}

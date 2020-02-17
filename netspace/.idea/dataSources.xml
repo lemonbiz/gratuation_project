@@ -9,5 +9,11 @@
       <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
       <jdbc-url>jdbc:mysql://122.51.95.201:3306/DjangoLearn</jdbc-url>
     </data-source>
+    <data-source source="LOCAL" name="DjangoLearn@122.51.95.201" uuid="a723b630-0010-4c48-8895-ef9f0c096995">
+      <driver-ref>mysql.8</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://122.51.95.201:3306/DjangoLearn</jdbc-url>
+    </data-source>
   </component>
 </project>

@@ -42,7 +42,8 @@ INSTALLED_APPS = [
     'widget_tweaks',
 
     'boards',
-    'accounts'
+    'accounts',
+    'movie'
 ]
 
 MIDDLEWARE = [
